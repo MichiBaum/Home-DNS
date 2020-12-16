@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  pihole:
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "67:67/udp"
+      - "80:80/tcp"
+      - "443:443/tcp"
+    environment:
+      TZ: 'Europe/Zurich'
+      DNSSEC: "true"
+      DNS_BOGUS_PRIV: "true"
+      REV_SERVER: "true"
+      REV_SERVER_DOMAIN: "michibaum.local"
+      REV_SERVER_TARGET: "192.168.1.1"
+      ServerIP: "192.168.1.102"
+      ServerIPv6: ""
+      TEMPERATUREUNIT: "c"
+      WEBUIBOXEDLAYOUT: "boxed"
+    volumes:
+      - './etc-pihole/:/etc/pihole/'
+      - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
+    cap_add:
+      - NET_ADMIN
+    restart: always
