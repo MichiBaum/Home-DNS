@@ -1,1 +1,1 @@
-FROM pihole/pihole:latest
+FROM pihole/pihole:master
