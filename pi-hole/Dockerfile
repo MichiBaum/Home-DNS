@@ -1,3 +1,3 @@
 FROM pihole/pihole:master
 
-COPY adlist.list /etc/pihole/adlists.list
+COPY ./adlists.list /etc/pihole/adlists.list
