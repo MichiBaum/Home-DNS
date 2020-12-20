@@ -2,6 +2,7 @@ version: '3.7'
 
 services:
   pihole:
+    container_name: pihole
     build:
       context: .
       dockerfile: Dockerfile
@@ -14,13 +15,16 @@ services:
     env_file:
       - .env
     environment:
-      TZ: 'Europe/Zurich'
-      DNSSEC: "true"
-      DNS_BOGUS_PRIV: "true"
-      #ServerIP: "${ServerIP}" in .env file
-      #ServerIPv6: "${ServerIPv6}" in .env file
-      TEMPERATUREUNIT: "c"
-      WEBUIBOXEDLAYOUT: "boxed"
+      - TZ: 'Europe/Zurich'
+      - DNSSEC: "true"
+      - DNS_BOGUS_PRIV: "true"
+      #ServerIP in .env file
+      #ServerIPv6 in .env file
+      #WEBPASSWORD in .env file
+      - TEMPERATUREUNIT: "c"
+      - WEBUIBOXEDLAYOUT: "boxed"
+      - DNS1: 127.0.0.1
+      - DNS2: 1.1.1.1
     #volumes:
     #  - ${host_etc_pihole}:/etc/pihole/ #in .env file
     #  - ${host_etc_dnsmasq}:/etc/dnsmasq.d/ #in .env file
