@@ -23,8 +23,8 @@ services:
       TEMPERATUREUNIT: "c"
       WEBUIBOXEDLAYOUT: "boxed"
     volumes:
-      - '${host_etc-pihole}:/etc/pihole/' #in .env file
-      - '${host_etc-dnsmasq}:/etc/dnsmasq.d/' #in .env file
+      - ${host_etc-pihole}:/etc/pihole/ #in .env file
+      - ${host_etc-dnsmasq}:/etc/dnsmasq.d/ #in .env file
     cap_add:
       - NET_ADMIN
     restart: always
