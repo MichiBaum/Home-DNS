@@ -15,15 +15,22 @@ services:
       DNSSEC: "true"
       DNS_BOGUS_PRIV: "true"
       REV_SERVER: "true"
-      REV_SERVER_DOMAIN: "michibaum.local"
-      REV_SERVER_TARGET: "192.168.1.1"
-      ServerIP: "192.168.1.102"
-      ServerIPv6: ""
+      REV_SERVER_DOMAIN: "${REV_SERVER_DOMAIN}" #in .env file
+      REV_SERVER_TARGET: "${REV_SERVER_TARGET}" #in .env file
+      ServerIP: "${ServerIP}" #in .env file
+      ServerIPv6: "${ServerIPv6}" #in .env file
       TEMPERATUREUNIT: "c"
       WEBUIBOXEDLAYOUT: "boxed"
     volumes:
-      - './etc-pihole/:/etc/pihole/'
-      - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
+      - '${host_etc-pihole}:/etc/pihole/' #in .env file
+      - '${host_etc-dnsmasq}:/etc/dnsmasq.d/' #in .env file
     cap_add:
       - NET_ADMIN
     restart: always
+    networks: 
+      - home-network
+
+networks:
+  home-network:
+    name: home-network
+    driver: bridge
