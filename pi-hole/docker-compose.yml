@@ -24,9 +24,9 @@ services:
       #ServerIPv6: "${ServerIPv6}" in .env file
       TEMPERATUREUNIT: "c"
       WEBUIBOXEDLAYOUT: "boxed"
-    volumes:
-      - ${host_etc_pihole}:/etc/pihole/ #in .env file
-      - ${host_etc_dnsmasq}:/etc/dnsmasq.d/ #in .env file
+    #volumes:
+    #  - ${host_etc_pihole}:/etc/pihole/ #in .env file
+    #  - ${host_etc_dnsmasq}:/etc/dnsmasq.d/ #in .env file
     cap_add:
       - NET_ADMIN
     restart: always
