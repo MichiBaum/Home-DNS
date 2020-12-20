@@ -11,15 +11,17 @@ services:
       - "67:67/udp"
       - "80:80/tcp"
       - "443:443/tcp"
+    env_file:
+      - .env
     environment:
       TZ: 'Europe/Zurich'
       DNSSEC: "true"
       DNS_BOGUS_PRIV: "true"
       REV_SERVER: "true"
-      REV_SERVER_DOMAIN: "${REV_SERVER_DOMAIN}" #in .env file
-      REV_SERVER_TARGET: "${REV_SERVER_TARGET}" #in .env file
-      ServerIP: "${ServerIP}" #in .env file
-      ServerIPv6: "${ServerIPv6}" #in .env file
+      #REV_SERVER_DOMAIN: "${REV_SERVER_DOMAIN}" in .env file
+      #REV_SERVER_TARGET: "${REV_SERVER_TARGET}" in .env file
+      #ServerIP: "${ServerIP}" in .env file
+      #ServerIPv6: "${ServerIPv6}" in .env file
       TEMPERATUREUNIT: "c"
       WEBUIBOXEDLAYOUT: "boxed"
     volumes:
