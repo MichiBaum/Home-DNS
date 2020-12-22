@@ -26,7 +26,7 @@ services:
       DNS1: 127.0.0.1
       DNS2: 1.1.1.1
     volumes:
-      - /docker/Home-DNS/:/etc/pihole/
+      - ./backup/:/etc/pihole/
     cap_add:
       - NET_ADMIN
     restart: always
