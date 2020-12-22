@@ -6,6 +6,9 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    dns:
+      - 127.0.0.1
+      - 8.8.8.8
     ports:
       - "53:53/tcp"
       - "53:53/udp"
@@ -20,8 +23,6 @@ services:
       WEBPASSWORD: test1234
       TEMPERATUREUNIT: "c"
       WEBUIBOXEDLAYOUT: "boxed"
-      DNS1: 127.0.0.1
-      DNS2: 1.1.1.1
     volumes:
       - './etc-pihole/:/etc/pihole/'
       - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
