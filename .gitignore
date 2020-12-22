@@ -1,2 +1,2 @@
-pi-hole/.env
-pi-hole/backup
+pi-hole/etc-dnsmasq.d
+pi-hole/etc-pihole
