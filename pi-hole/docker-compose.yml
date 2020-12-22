@@ -25,9 +25,8 @@ services:
       WEBUIBOXEDLAYOUT: "boxed"
       DNS1: 127.0.0.1
       DNS2: 1.1.1.1
-    #volumes:
-    #  - ${host_etc_pihole}:/etc/pihole/ #in .env file
-    #  - ${host_etc_dnsmasq}:/etc/dnsmasq.d/ #in .env file
+    volumes:
+      - /docker/Home-DNS/:/etc/pihole/
     cap_add:
       - NET_ADMIN
     restart: always
