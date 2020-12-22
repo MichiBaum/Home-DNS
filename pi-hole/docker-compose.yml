@@ -23,7 +23,8 @@ services:
       DNS1: 127.0.0.1
       DNS2: 1.1.1.1
     volumes:
-      - ./backup/:/etc/pihole/
+      - './etc-pihole/:/etc/pihole/'
+      - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
     cap_add:
       - NET_ADMIN
     restart: always
